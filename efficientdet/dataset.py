@@ -51,6 +51,8 @@ class CocoDataset(Dataset):
         path = os.path.join(self.root_dir, self.set_name, image_info['file_name'])
         img = cv2.imread(path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        print('file_name', image_info['file_name'])
+        print('path', path)
 
         return img.astype(np.float32) / 255.
 
