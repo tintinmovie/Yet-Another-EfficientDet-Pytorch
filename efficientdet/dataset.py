@@ -53,6 +53,7 @@ class CocoDataset(Dataset):
             img = cv2.imread(path, -1)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         except:
+            print("Error in cv2 code")
             print('file_name', image_info['file_name'])
             print('path', path)
 
