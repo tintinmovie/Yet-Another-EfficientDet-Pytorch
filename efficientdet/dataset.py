@@ -39,6 +39,8 @@ class CocoDataset(Dataset):
 
     def __getitem__(self, idx):
         print('idx', idx)
+        if idx == 1:
+            print("hey idx == 1")
         img = self.load_image(idx)
         annot = self.load_annotations(idx)
         sample = {'img': img, 'annot': annot}
