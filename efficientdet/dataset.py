@@ -16,6 +16,8 @@ class CocoDataset(Dataset):
 
         self.coco = COCO(os.path.join(self.root_dir, 'annotations', 'instances_' + self.set_name + '.json'))
         self.image_ids = self.coco.getImgIds()
+        
+        print('set_name', self.set_name)
 
         self.load_classes()
 
@@ -55,7 +57,7 @@ class CocoDataset(Dataset):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         except:
             print("Error in cv2 code")
-            print('id', image_index, 'file_name', image_info['file_name'], 'path', path)
+            print('id', image_index, 'file_name', image_info['file_name'], 'path', path, 'img_id_from_idx', self.image_ids[image_index])
 
         return img.astype(np.float32) / 255.
 
