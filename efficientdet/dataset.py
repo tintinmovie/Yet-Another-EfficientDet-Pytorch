@@ -38,7 +38,7 @@ class CocoDataset(Dataset):
         return len(self.image_ids)
 
     def __getitem__(self, idx):
-
+        print('idx', idx)
         img = self.load_image(idx)
         annot = self.load_annotations(idx)
         sample = {'img': img, 'annot': annot}
