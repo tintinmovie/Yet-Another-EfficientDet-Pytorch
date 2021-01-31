@@ -38,7 +38,6 @@ class CocoDataset(Dataset):
         return len(self.image_ids)
 
     def __getitem__(self, idx):
-        print('idx', idx)
         if idx == 1:
             print("hey idx == 1")
         img = self.load_image(idx)
@@ -56,8 +55,7 @@ class CocoDataset(Dataset):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         except:
             print("Error in cv2 code")
-            print('file_name', image_info['file_name'])
-            print('path', path)
+            print('id', image_index, 'file_name', image_info['file_name'], 'path', path)
 
         return img.astype(np.float32) / 255.
 
