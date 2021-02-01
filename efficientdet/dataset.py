@@ -53,11 +53,11 @@ class CocoDataset(Dataset):
         image_info = self.coco.loadImgs([self.image_ids[image_index]])[0]
         path = os.path.join(self.root_dir, self.set_name, image_info['file_name'])
         try:
-            img = cv2.imread(path, -1)
+            img = cv2.imread(path)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         except:
             print("Error in cv2 code")
-            print('id', image_index, 'file_name', image_info['file_name'], 'path', path, 'img_id_from_idx', self.image_ids[image_index])
+            print('id', image_index, 'file_name', image_info['file_name'], 'path', path, 'img_id_from_idx', self.image_ids[image_index], 'set_name', self.set_name)
 
         return img.astype(np.float32) / 255.
 
